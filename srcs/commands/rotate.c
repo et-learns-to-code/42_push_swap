@@ -6,12 +6,13 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 14:40:35 by etien             #+#    #+#             */
-/*   Updated: 2024/07/27 15:42:18 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/27 15:48:12 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
+// prelim check to ensure at least two nodes in stack
 // 1st (np), 2nd (p) and last node (n) affected
 // 1st element is moved to the bottom of the stack
 // First build links to make list circular

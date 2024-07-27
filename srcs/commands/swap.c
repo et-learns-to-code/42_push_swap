@@ -6,13 +6,13 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 13:51:09 by etien             #+#    #+#             */
-/*   Updated: 2024/07/27 15:42:38 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/27 15:48:44 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// returns if there are less than two nodes in the stack
+// prelim check to ensure at least two nodes in stack
 // swap_node is the second node in the stack which
 // will swap positions with the head node
 // next: n; previous: p
