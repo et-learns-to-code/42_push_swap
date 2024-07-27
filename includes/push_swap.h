@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 16:06:43 by etien             #+#    #+#             */
-/*   Updated: 2024/07/27 15:40:58 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/27 16:28:30 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ typedef struct s_stack_node
 {
 	int					number;
 	int					index;
-	struct s_stack_node	*prev;
+	int					push_cost;
+	bool				above_median;
+	bool				best_candidate;
 	struct s_stack_node	*next;
+	struct s_stack_node	*prev;
 	struct s_stack_node	*target;
 }	t_stack_node;
 

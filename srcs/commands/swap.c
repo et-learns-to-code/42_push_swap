@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 13:51:09 by etien             #+#    #+#             */
-/*   Updated: 2024/07/27 15:48:44 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/27 15:56:53 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 // swap_node is the second node in the stack which
 // will swap positions with the head node
 // next: n; previous: p
-// first (np), second (np) and third (p) node will be affected
+// 1st (np), 2nd (np) and 3rd (p) node will be affected
 static void	swap(t_stack_node **head)
 {
 	t_stack_node	*swap_node;
