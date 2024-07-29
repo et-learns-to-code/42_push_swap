@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 11:36:08 by etien             #+#    #+#             */
-/*   Updated: 2024/07/29 10:45:26 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/29 14:23:13 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int	main(int ac, char **av)
 	b = NULL;
 	if (ac == 1 || (ac == 2 && !av[1][0]))
 		return (1);
-	else if (ac == 2)
-
+	av = create_numbers_arr(av);
+	init_stack(&a, av);
 	return (0);
-
 }

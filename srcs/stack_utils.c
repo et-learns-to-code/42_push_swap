@@ -6,16 +6,16 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 16:53:21 by etien             #+#    #+#             */
-/*   Updated: 2024/07/29 10:34:25 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/29 13:57:00 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 // Returns the number of nodes in the stack.
-int stack_size(t_stack_node *stack)
+int	stack_size(t_stack_node *stack)
 {
-	int size;
+	int	size;
 
 	if (!stack)
 		return (0);
@@ -29,7 +29,7 @@ int stack_size(t_stack_node *stack)
 }
 
 // Returns the last node in the stack.
-t_stack_node *find_last(t_stack_node *stack)
+t_stack_node	*find_last(t_stack_node *stack)
 {
 	if (!stack)
 		return (NULL);
@@ -41,9 +41,9 @@ t_stack_node *find_last(t_stack_node *stack)
 // Returns the node with the smallest value in the stack.
 // Min node is the first node by default then updated
 // from comparison with subsequent nodes.
-t_stack_node *find_min(t_stack_node *stack)
+t_stack_node	*find_min(t_stack_node *stack)
 {
-	t_stack_node *min_node;
+	t_stack_node	*min_node;
 
 	if (!stack)
 		return (NULL);
@@ -61,9 +61,9 @@ t_stack_node *find_min(t_stack_node *stack)
 // Returns the node with the largest value in the stack.
 // Max node is the first node by default then updated
 // from comparison with subsequent nodes.
-t_stack_node *find_max(t_stack_node *stack)
+t_stack_node	*find_max(t_stack_node *stack)
 {
-	t_stack_node *max_node;
+	t_stack_node	*max_node;
 
 	if (!stack)
 		return (NULL);
@@ -77,4 +77,3 @@ t_stack_node *find_max(t_stack_node *stack)
 	}
 	return (max_node);
 }
-
