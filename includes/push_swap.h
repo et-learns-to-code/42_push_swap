@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 16:06:43 by etien             #+#    #+#             */
-/*   Updated: 2024/07/27 16:28:30 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/29 11:20:01 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef struct s_stack_node
 {
-	int					number;
+	int					value;
 	int					index;
 	int					push_cost;
 	bool				above_median;
@@ -43,5 +43,11 @@ void	rr(t_stack_node **a, t_stack_node **b, bool print);
 void	rra(t_stack_node **a, bool print);
 void	rrb(t_stack_node **b, bool print);
 void	rrr(t_stack_node **a, t_stack_node **b, bool print);
+
+// Stack utils
+int stack_size(t_stack_node *stack);
+t_stack_node *find_last(t_stack_node *stack);
+t_stack_node *find_min(t_stack_node *stack);
+t_stack_node *find_max(t_stack_node *stack);
 
 #endif

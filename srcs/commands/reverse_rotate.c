@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 15:25:10 by etien             #+#    #+#             */
-/*   Updated: 2024/07/27 15:48:17 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/29 10:15:03 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ static void	reverse_rotate(t_stack_node **head)
 
 	if (!*head || !(*head)->next)
 		return ;
-	last_node = *head;
-	while (last_node->next)
-		last_node = last_node->next;
+	last_node = find_last(*head);
 	last_node->next = *head;
 	(*head)->prev = last_node;
 	*head = last_node;
