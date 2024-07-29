@@ -6,13 +6,14 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 16:06:43 by etien             #+#    #+#             */
-/*   Updated: 2024/07/29 14:21:36 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/29 17:19:18 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <unistd.h>
 # include <stdbool.h>
 # include <limits.h>
 # include "../libft/includes/libft.h"
@@ -44,8 +45,17 @@ void			rra(t_stack_node **a, bool print);
 void			rrb(t_stack_node **b, bool print);
 void			rrr(t_stack_node **a, t_stack_node **b, bool print);
 
+// Error handling
+void			free_err_exit(t_stack_node **stack);
+void			free_stack(t_stack_node **stack);
+int				syntax_error(char *str);
+int				duplicate_error(t_stack_node stack, int nbr);
+
 // Stack init
 char			**create_numbers_arr(char **av);
+void			init_stack(t_stack_node **stack, char **av);
+long			ft_atol(char *str);
+void			append_node(t_stack_node **stack, int nbr);
 
 // Stack utils
 int				stack_size(t_stack_node *stack);

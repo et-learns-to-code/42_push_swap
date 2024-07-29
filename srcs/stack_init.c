@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:01:02 by etien             #+#    #+#             */
-/*   Updated: 2024/07/29 14:30:24 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/29 17:29:04 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,84 @@ char	**create_numbers_arr(char **av)
 	numbers_arr = ft_split(concat_all_numbers, ' ');
 	free(concat_all_numbers);
 	return (numbers_arr);
+}
+
+// This function will initialize the stack by first checking the number arrays
+// for syntax, value or duplicate errors, before creating and appending the
+// nodes to the stack.
+// Long data type is used for error checking because the number might actually
+// exceed the integer limit; after checking, duplicate error can just check for
+// int because the number has already been vetted.
+void	init_stack(t_stack_node **stack, char **av)
+{
+	long	nbr;
+	int		i;
+
+	while (av[i])
+	{
+		if (syntax_error(av[i]))
+			free_err_exit(stack);
+		nbr = ft_atol(av[i]);
+		if (nbr > INT_MAX || nbr < INT_MIN)
+			free_err_exit(stack);
+		if (duplicate_error(*stack, (int)nbr))
+			free_err_exit(stack);
+		append_node(stack, (int)nbr);
+		i++;
+	}
+}
+
+// This function converts the string to a long number.
+// A long number is used because the numbers have not been
+// checked to fit within the integer limit yet.
+// It is still necessary to check for whitespaces (ASCII 9-13) because
+// ft_split will only trim away ' ' (spaces i.e. ASCII 32).
+long	ft_atol(char *str)
+{
+	long	result;
+	int		sign;
+
+	result = 0;
+	sign = 1;
+	if (*str >= 9 && *str <= 13)
+		str++;
+	if ((*str) == '+' || (*str) == '-')
+	{
+		if ((*str) == '-')
+			sign = -1;
+		str++;
+	}
+	while (*str)
+	{
+		result *= 10;
+		result += (*str - '0');
+		str++;
+	}
+	return (sign * result);
+}
+
+// This function creates and appends nodes to the end of the stack.
+// If there is no last node found i.e. the stack is empty, the stack pointer
+// is updated to the new node.
+void	append_node(t_stack_node **stack, int nbr)
+{
+	t_stack_node	*new_node;
+	t_stack_node	*last_node;
+
+	new_node = malloc(sizeof(t_stack_node));
+	if (!new_node)
+		return ;
+	new_node->next = NULL;
+	new_node->value = nbr;
+	last_node = find_last(*stack);
+	if (!last_node)
+	{
+		*stack = new_node;
+		new_node->prev = NULL;
+	}
+	else
+	{
+		last_node->next = new_node;
+		new_node->prev = last_node;
+	}
 }
