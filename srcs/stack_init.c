@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:01:02 by etien             #+#    #+#             */
-/*   Updated: 2024/07/29 17:29:04 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/30 10:40:19 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,8 @@ long	ft_atol(char *str)
 	return (sign * result);
 }
 
-// This function creates and appends nodes to the end of the stack.
+// This function creates and appends nodes to the end of the stack and
+// sets up their value.
 // If there is no last node found i.e. the stack is empty, the stack pointer
 // is updated to the new node.
 void	append_node(t_stack_node **stack, int nbr)

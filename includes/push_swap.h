@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 16:06:43 by etien             #+#    #+#             */
-/*   Updated: 2024/07/29 17:19:18 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/30 11:25:30 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,17 @@
 # include "../libft/includes/ft_printf.h"
 # include "../libft/includes/get_next_line.h"
 
+// Node variables
 typedef struct s_stack_node
 {
-	int					value;
-	int					index;
-	int					push_cost;
-	bool				above_median;
-	bool				best_candidate;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
-	struct s_stack_node	*target;
+	int					value;
+	int					index;
+	bool				above_median;
+	struct s_stack_node	*target_node;
+	int					moves_to_push;
+	bool				best_candidate;
 }	t_stack_node;
 
 // Commands
@@ -62,5 +63,9 @@ int				stack_size(t_stack_node *stack);
 t_stack_node	*find_last(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
+
+// Init nodes in A
+void set_index_median(t_stack_node *stack);
+void set_target_for_a(t_stack_node *stack_a, t_stack_node *stack_b)
 
 #endif
