@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:21:59 by etien             #+#    #+#             */
-/*   Updated: 2024/07/30 11:49:59 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/30 16:23:00 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void set_index_median(t_stack_node *stack)
 	while (stack)
 	{
 		stack->index = index;
-		if (index <= median)
+		if (index < median)
 			stack->above_median = true;
 		else
 			stack->above_median = false;
@@ -74,13 +74,15 @@ void set_target_for_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-// This function will calculate how many moves it takes to get a node
-// in stack a and its target node in stack b to the top of their
-// respective stacks. This will help to optimize the algorithm by minimizing
-// the number of moves taken.
+// This function will calculate how many total moves it takes to get a node
+// in stack A and its target node in stack B to the top of their
+// respective stacks. This will help to optimize the algorithm by
+// ensuring the minimum number of moves are taken.
 // If the node is above the median, the stack will have to rotated.
 // If the node is below the median, the stack will have to be reverse rotated.
-void moves_to_push_a(t_stack_node *a, t_stack_node *b)
+// If the node is at the top of the stack, index will be 0, meaning no
+// rotation is necessary.
+void set_moves_to_push_a(t_stack_node *a, t_stack_node *b)
 {
 	int size_a;
 	int size_b;
@@ -91,17 +93,51 @@ void moves_to_push_a(t_stack_node *a, t_stack_node *b)
 	{
 		a->moves_to_push = a->index;
 		if (!(a->above_median))
-			a->moves_to_push = size_a - a->index;
+			a->moves_to_push = size_a - (a->index);
 		if (a->target_node->above_median)
-			a->moves_to_push +=
+			a->moves_to_push += a->target_node->index;
+		else
+			a->moves_to_push += size_b - (a->target_node->index);
 		a = a->next;
 	}
-
-
-
-
 }
 
+// This function will set the best_candidate boolean for the node
+// that can be pushed to the other stack with the least number of
+// moves. If two nodes share the same number of moves, the node closer
+// to the top of the stack will be given priority.
+// Unlike the set_index_median function, only boolean for the best
+// candidate is set. Boolean for the other nodes are uninitialized.
+void set_best_candidate(t_stack_node *stack)
+{
+	int				least_moves;
+	t_stack_node	*least_moves_node;
 
+	if (!stack)
+		return ;
+	least_moves = INT_MAX;
+	while (stack)
+	{
+		if (stack->moves_to_push < least_moves)
+		{
+			least_moves = stack->moves_to_push;
+			least_moves_node = stack;
+		}
+		stack = stack->next;
+	}
+	least_moves_node->best_candidate = true;
+}
 
-
+// This is the composite function combining all the above functions.
+// Node variables will be initialized in the sequence:
+// index > above_median > target_node > moves_to_push > best_candidate
+// Index and median in stack B nodes have to be initialized because this info
+// is needed by the moves_to_push function.
+void init_nodes_a(t_stack_node *a, t_stack_node *b)
+{
+	set_index_median(a);
+	set_index_median(b);
+	set_target_for_a(a, b);
+	set_moves_to_push_a(a, b);
+	set_best_candidate(a);
+}
