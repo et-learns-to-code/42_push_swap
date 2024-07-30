@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 16:06:43 by etien             #+#    #+#             */
-/*   Updated: 2024/07/30 16:20:33 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/30 16:38:57 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int				stack_size(t_stack_node *stack);
 t_stack_node	*find_last(t_stack_node *stack);
 t_stack_node	*find_min(t_stack_node *stack);
 t_stack_node	*find_max(t_stack_node *stack);
+t_stack_node	*find_best_candidate(t_stack_node *stack);
 
 // Init nodes
 void set_index_median(t_stack_node *stack);

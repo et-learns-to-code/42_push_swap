@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 16:53:21 by etien             #+#    #+#             */
-/*   Updated: 2024/07/29 13:57:00 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/30 16:38:49 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,19 @@ t_stack_node	*find_max(t_stack_node *stack)
 		stack = stack->next;
 	}
 	return (max_node);
+}
+
+// Returns the node in the stack that has best_candidate
+// boolean set to true.
+t_stack_node	*find_best_candidate(t_stack_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack)
+	{
+		if (stack->best_candidate)
+			return (stack);
+		stack = stack->next;
+	}
+	return (NULL);
 }
