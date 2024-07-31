@@ -6,11 +6,25 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:21:59 by etien             #+#    #+#             */
-/*   Updated: 2024/07/30 16:23:00 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/31 11:08:14 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+// This is the composite function combining all the functions below.
+// Stack A node variables will be initialized in the sequence:
+// index > above_median > target_node > moves_to_push > best_candidate
+// Index and median in stack B nodes have to be initialized because this info
+// is needed by the moves_to_push function.
+void init_nodes_a(t_stack_node *a, t_stack_node *b)
+{
+	set_index_median(a);
+	set_index_median(b);
+	set_target_for_a(a, b);
+	set_moves_to_push_a(a, b);
+	set_best_candidate(a);
+}
 
 // This function will run through the stack and set up the index
 // and above_median boolean for each node.
@@ -43,14 +57,14 @@ void set_index_median(t_stack_node *stack)
 // Since the nodes are being pushed to stack B, each node must be pushed
 // onto a number smaller than them but still closest to them based on
 // the nodes currently available in stack B.
-// Long data type is used for the best_match_index so that it is always
+// Long data type is used for best_match so that it is always
 // clear when this value has been updated. If there were INT_MIN or
 // INT_MAX nodes in the stack and an int data type was used instead,
 // this could send conflicting signals and result in incorrect execution in
 // the decision tree.
 // current_b pointer created because we need to iterate through the stack
 // but also have the original b pointer to use the find_max function.
-void set_target_for_a(t_stack_node *a, t_stack_node *b)
+static void set_target_for_a(t_stack_node *a, t_stack_node *b)
 {
 	long			best_match;
 	t_stack_node	*current_b;
@@ -82,7 +96,7 @@ void set_target_for_a(t_stack_node *a, t_stack_node *b)
 // If the node is below the median, the stack will have to be reverse rotated.
 // If the node is at the top of the stack, index will be 0, meaning no
 // rotation is necessary.
-void set_moves_to_push_a(t_stack_node *a, t_stack_node *b)
+static void set_moves_to_push_a(t_stack_node *a, t_stack_node *b)
 {
 	int size_a;
 	int size_b;
@@ -126,18 +140,4 @@ void set_best_candidate(t_stack_node *stack)
 		stack = stack->next;
 	}
 	least_moves_node->best_candidate = true;
-}
-
-// This is the composite function combining all the above functions.
-// Node variables will be initialized in the sequence:
-// index > above_median > target_node > moves_to_push > best_candidate
-// Index and median in stack B nodes have to be initialized because this info
-// is needed by the moves_to_push function.
-void init_nodes_a(t_stack_node *a, t_stack_node *b)
-{
-	set_index_median(a);
-	set_index_median(b);
-	set_target_for_a(a, b);
-	set_moves_to_push_a(a, b);
-	set_best_candidate(a);
 }
