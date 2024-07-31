@@ -6,18 +6,18 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 14:40:35 by etien             #+#    #+#             */
-/*   Updated: 2024/07/29 10:15:56 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/31 17:23:15 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// prelim check to ensure at least two nodes in stack
-// 1st (np), 2nd (p) and last node (n) affected
-// 1st element is moved to the bottom of the stack
-// First build links to make list circular
-// Then update head and last node pointers to correct posittions
-// Then break links
+// First node is moved to the bottom of the stack.
+// Prelim check to ensure at least two nodes in the stack.
+// First, build links to make list circular.
+// Then update head and last node pointers to correct positions.
+// Finally, break links.
+// First (next, prev), second (prev) and last node (next) affected.
 static void	rotate(t_stack_node **head)
 {
 	t_stack_node	*last_node;

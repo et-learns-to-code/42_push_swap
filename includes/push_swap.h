@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 16:06:43 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 14:37:56 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/31 16:49:50 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include "../libft/includes/ft_printf.h"
 # include "../libft/includes/get_next_line.h"
 
-# define FORWARD 0;
-# define REVERSE 1;
+# define FORWARD 0
+# define REVERSE 1
 
 // Node variables
 typedef struct s_stack_node
@@ -87,7 +87,9 @@ bool			stack_sorted(t_stack_node *a);
 // Move nodes
 void			move_a_to_b(t_stack_node **a, t_stack_node **b);
 void			move_b_to_a(t_stack_node **a, t_stack_node **b);
-void			rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *best_candidate, int direction);
+void			rotate_both_stacks(t_stack_node **a, t_stack_node **b,
+					t_stack_node *best_candidate, int direction);
+void			node_on_top(t_stack_node **stack, t_stack_node *node, char *stack_name);
 void			min_on_top(t_stack_node **a);
 
 #endif

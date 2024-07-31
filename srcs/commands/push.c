@@ -6,18 +6,18 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 13:18:23 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 14:26:33 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/31 17:22:18 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// returns if nothing to push from the stack
-// first checks that there is a node to push from src
-// a pointer is created to the node to be pushed because
-// it has to be detached from the src stack and moved to the
-// dst stack
-// src pointer is moved to the next node
+// Pushes a node from the top of one stack to the top of the other stack.
+// Returns if there is nothing to push from the stack.
+// A pointer is created to the node to be pushed because it has to be
+// detached from the src stack and moved to the dst stack.
+// The src pointer is updated to the next node.
+// The push node will become the new head of the dst stack.
 static void	push(t_stack_node **dst, t_stack_node **src)
 {
 	t_stack_node	*push_node;

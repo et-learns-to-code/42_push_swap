@@ -6,14 +6,14 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:31:53 by etien             #+#    #+#             */
-/*   Updated: 2024/07/29 17:28:01 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/31 17:25:08 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// This function frees the stack, prints the error message and exits
-// the program.
+// This function frees the stack, prints the error message and
+// exits the program.
 void	free_err_exit(t_stack_node **stack)
 {
 	free_stack(stack);

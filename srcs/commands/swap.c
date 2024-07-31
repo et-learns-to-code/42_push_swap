@@ -6,17 +6,17 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 13:51:09 by etien             #+#    #+#             */
-/*   Updated: 2024/07/27 15:56:53 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/31 17:24:22 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// prelim check to ensure at least two nodes in stack
+// Swap positions of the first two nodes in the stack.
+// Prelim check to ensure at least two nodes in the stack.
 // swap_node is the second node in the stack which
-// will swap positions with the head node
-// next: n; previous: p
-// 1st (np), 2nd (np) and 3rd (p) node will be affected
+// will swap positions with the head node.
+// First (next, prev), second (next, prev) and third (prev) node will be affected.
 static void	swap(t_stack_node **head)
 {
 	t_stack_node	*swap_node;
