@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 13:18:23 by etien             #+#    #+#             */
-/*   Updated: 2024/07/29 11:17:55 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/31 14:26:33 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	pa(t_stack_node **a, t_stack_node **b, bool print)
 		ft_printf("pa\n");
 }
 
-void	pb(t_stack_node **b, t_stack_node **a, bool print)
+void	pb(t_stack_node **a, t_stack_node **b, bool print)
 {
 	push(b, a);
 	if (print)

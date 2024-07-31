@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 16:06:43 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 10:53:37 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/31 14:37:56 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include "../libft/includes/libft.h"
 # include "../libft/includes/ft_printf.h"
 # include "../libft/includes/get_next_line.h"
+
+# define FORWARD 0;
+# define REVERSE 1;
 
 // Node variables
 typedef struct s_stack_node
@@ -38,7 +41,7 @@ void			sa(t_stack_node **a, bool print);
 void			sb(t_stack_node **b, bool print);
 void			ss(t_stack_node **a, t_stack_node **b, bool print);
 void			pa(t_stack_node **a, t_stack_node **b, bool print);
-void			pb(t_stack_node **b, t_stack_node **a, bool print);
+void			pb(t_stack_node **a, t_stack_node **b, bool print);
 void			ra(t_stack_node **a, bool print);
 void			rb(t_stack_node **b, bool print);
 void			rr(t_stack_node **a, t_stack_node **b, bool print);
@@ -66,19 +69,25 @@ t_stack_node	*find_max(t_stack_node *stack);
 t_stack_node	*find_best_candidate(t_stack_node *stack);
 
 // Init nodes in stack A
-void init_nodes_a(t_stack_node *a, t_stack_node *b);
-void set_index_median(t_stack_node *stack);
-static void set_target_for_a(t_stack_node *stack_a, t_stack_node *stack_b);
-static void set_moves_to_push_a(t_stack_node *a, t_stack_node *b);
-void set_best_candidate(t_stack_node *stack);
+void			init_nodes_a(t_stack_node *a, t_stack_node *b);
+void			set_index_median(t_stack_node *stack);
+static void		set_target_for_a(t_stack_node *a, t_stack_node *b);
+static void		set_moves_to_push_a(t_stack_node *a, t_stack_node *b);
+static void		set_best_candidate(t_stack_node *a);
 
 // Init nodes in stack B
-void init_nodes_b(t_stack_node *a, t_stack_node *b);
-static void set_target_for_b(t_stack_node *stack_a, t_stack_node *stack_b);
+void			init_nodes_b(t_stack_node *a, t_stack_node *b);
+static void		set_target_for_b(t_stack_node *a, t_stack_node *b);
 
-// SORTING ALGORITHMS
-// Sort stack
-void sort_stack(t_stack_node **a, t_stack_node **b);
-bool stack_sorted(t_stack_node *a);
+// Sort algorithms
+void			sort_stack(t_stack_node **a, t_stack_node **b);
+static void		sort_three(t_stack_node **a);
+bool			stack_sorted(t_stack_node *a);
+
+// Move nodes
+void			move_a_to_b(t_stack_node **a, t_stack_node **b);
+void			move_b_to_a(t_stack_node **a, t_stack_node **b);
+void			rotate_both(t_stack_node **a, t_stack_node **b, t_stack_node *best_candidate, int direction);
+void			min_on_top(t_stack_node **a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:45:04 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 11:06:48 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/31 13:00:09 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@
 // Index and median in stack A nodes have to be initialized so that the
 // most efficient rotation can take place.
 // set_index_median is borrowed from the init_nodes_a.c file
-void init_nodes_b(t_stack_node *a, t_stack_node *b)
+// Least moves calculation (moves_to_push and best_candidate variables)
+// is only necessary when pushing from stack A to stack B.
+// When pushing back from stack B to stack A, the numbers are already
+// sorted so this optimization is not necessary.
+void	init_nodes_b(t_stack_node *a, t_stack_node *b)
 {
 	set_index_median(b);
 	set_index_median(a);
@@ -36,7 +40,7 @@ void init_nodes_b(t_stack_node *a, t_stack_node *b)
 // the decision tree.
 // current_a pointer created because we need to iterate through the stack
 // but also have the original a pointer to use the find_min function.
-static void set_target_for_b(t_stack_node *a, t_stack_node *b)
+static void	set_target_for_b(t_stack_node *a, t_stack_node *b)
 {
 	long			best_match;
 	t_stack_node	*current_a;
@@ -47,7 +51,8 @@ static void set_target_for_b(t_stack_node *a, t_stack_node *b)
 		current_a = a;
 		while (current_a)
 		{
-			if ((current_a->value > b->value) && (current_a->value < best_match))
+			if ((current_a->value > b->value)
+				&& (current_a->value < best_match))
 			{
 				best_match = current_a->value;
 				b->target_node = current_a;

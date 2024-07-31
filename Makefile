@@ -2,7 +2,8 @@ NAME = push_swap
 
 SRCS = $(addprefix srcs/, \
 	commands/push.c  commands/reverse_rotate.c commands/rotate.c commands/swap.c \
-	push_swap.c error_handling.c  stack_init.c stack_utils.c init_nodes_a.c sort_stack.c)
+	push_swap.c error_handling.c  stack_init.c stack_utils.c \
+	init_nodes_a.c init_nodes_b.c move_nodes.c sort_algorithms.c)
 
 OBJS = $(SRCS:.c=.o)
 
