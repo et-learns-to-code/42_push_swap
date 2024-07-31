@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 16:06:43 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 16:49:50 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/31 17:28:42 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ void			move_a_to_b(t_stack_node **a, t_stack_node **b);
 void			move_b_to_a(t_stack_node **a, t_stack_node **b);
 void			rotate_both_stacks(t_stack_node **a, t_stack_node **b,
 					t_stack_node *best_candidate, int direction);
-void			node_on_top(t_stack_node **stack, t_stack_node *node, char *stack_name);
+void			node_on_top(t_stack_node **stack, t_stack_node *node,
+					char *stack_name);
 void			min_on_top(t_stack_node **a);
 
 #endif
