@@ -6,13 +6,14 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 11:36:08 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 10:03:30 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/31 17:41:29 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// !av[1][0] checks that first arg is not an empty string - ./pushswap ""
+// Main function for the push swap project.
+// !av[1][0] checks that first arg is not an empty string e.g. ./pushswap ""
 int	main(int ac, char **av)
 {
 	t_stack_node	*a;
@@ -24,5 +25,6 @@ int	main(int ac, char **av)
 		return (1);
 	av = create_numbers_arr(av);
 	init_stack(&a, av);
+
 	return (0);
 }

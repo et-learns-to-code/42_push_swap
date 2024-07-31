@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:31:53 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 17:25:08 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/31 17:47:22 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,19 @@ void	free_stack(t_stack_node **stack)
 		*stack = (*stack)->next;
 		free(current_node);
 	}
+}
+
+// This function is called in init_stack to free the numbers array
+// that was malloced once all the numbers have been processed into
+// nodes in the linked list.
+void	free_double_arr(char **av)
+{
+	int	i;
+
+	i = -1;
+	while (av[++i])
+		free(av[i]);
+	free(av);
 }
 
 // This function checks that the syntax is valid i.e. only +/- signs

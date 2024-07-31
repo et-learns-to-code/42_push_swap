@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:01:02 by etien             #+#    #+#             */
-/*   Updated: 2024/07/30 10:40:19 by etien            ###   ########.fr       */
+/*   Updated: 2024/07/31 17:54:14 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	init_stack(t_stack_node **stack, char **av)
 		append_node(stack, (int)nbr);
 		i++;
 	}
+	free_double_arr(av);
 }
 
 // This function converts the string to a long number.
@@ -108,7 +109,7 @@ void	append_node(t_stack_node **stack, int nbr)
 
 	new_node = malloc(sizeof(t_stack_node));
 	if (!new_node)
-		return ;
+		free_err_exit(stack);
 	new_node->next = NULL;
 	new_node->value = nbr;
 	last_node = find_last(*stack);
