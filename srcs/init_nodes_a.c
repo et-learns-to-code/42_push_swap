@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:21:59 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 14:39:50 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 10:33:49 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	set_index_median(t_stack_node *stack)
 // the decision tree.
 // current_b pointer created because we need to iterate through the stack
 // but also have the original b pointer to use the find_max function.
-static void	set_target_for_a(t_stack_node *a, t_stack_node *b)
+void	set_target_for_a(t_stack_node *a, t_stack_node *b)
 {
 	long			best_match;
 	t_stack_node	*current_b;
@@ -99,7 +99,7 @@ static void	set_target_for_a(t_stack_node *a, t_stack_node *b)
 // so the number of moves will be (stack size - index).
 // If the node is at the top of the stack, index will be 0, meaning no
 // rotation is necessary.
-static void	set_moves_to_push_a(t_stack_node *a, t_stack_node *b)
+void	set_moves_to_push_a(t_stack_node *a, t_stack_node *b)
 {
 	int	size_a;
 	int	size_b;
@@ -125,7 +125,7 @@ static void	set_moves_to_push_a(t_stack_node *a, t_stack_node *b)
 // to the top of the stack will be given priority.
 // Unlike the set_index_median function, only boolean for the best
 // candidate is set. Boolean for the other nodes are uninitialized.
-static void	set_best_candidate(t_stack_node *a)
+void	set_best_candidate(t_stack_node *a)
 {
 	int				least_moves;
 	t_stack_node	*least_moves_node;

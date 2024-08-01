@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:01:02 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 17:54:14 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 10:35:40 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	init_stack(t_stack_node **stack, char **av)
 	long	nbr;
 	int		i;
 
+	i = 0;
 	while (av[i])
 	{
 		if (syntax_error(av[i]))

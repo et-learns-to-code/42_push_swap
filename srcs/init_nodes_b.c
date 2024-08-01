@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:45:04 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 13:00:09 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 10:33:56 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	init_nodes_b(t_stack_node *a, t_stack_node *b)
 // the decision tree.
 // current_a pointer created because we need to iterate through the stack
 // but also have the original a pointer to use the find_min function.
-static void	set_target_for_b(t_stack_node *a, t_stack_node *b)
+void	set_target_for_b(t_stack_node *a, t_stack_node *b)
 {
 	long			best_match;
 	t_stack_node	*current_a;

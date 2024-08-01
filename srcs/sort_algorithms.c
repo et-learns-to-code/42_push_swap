@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 09:43:49 by etien             #+#    #+#             */
-/*   Updated: 2024/08/01 10:06:07 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 10:32:11 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	sort_stack(t_stack_node **a, t_stack_node **b)
 // so that it becomes the last node.
 // If the first node is still bigger than the second node, swap
 // the first two nodes.
-static void	sort_three(t_stack_node **a)
+void	sort_three(t_stack_node **a)
 {
 	t_stack_node	*max_node;
 

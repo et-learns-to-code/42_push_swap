@@ -6,9 +6,11 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 13:21:11 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 16:49:03 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 10:39:15 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/push_swap.h"
 
 // This function is called in the first while loop in the sort_stack function.
 // It will determine the movement of nodes from stack A to stack B.
@@ -72,7 +74,7 @@ void	rotate_both_stacks(t_stack_node **a, t_stack_node **b,
 // Stack name must be given as a parameter because this
 // is a general function and stack A and B have different
 // commands for moving the nodes.
-void	node_on_top(t_stack_node **stack, t_stack_node *node, char *stack_name)
+void	node_on_top(t_stack_node **stack, t_stack_node *node, char stack_name)
 {
 	while (*stack != node)
 	{

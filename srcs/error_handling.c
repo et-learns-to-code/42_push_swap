@@ -6,52 +6,11 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:31:53 by etien             #+#    #+#             */
-/*   Updated: 2024/08/01 10:13:58 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 10:47:30 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-// This function frees the stack, prints the error message and
-// exits the program.
-void	free_err_exit(t_stack_node **stack)
-{
-	free_stack(stack);
-	write(2, "Error\n", 6);
-	exit(1);
-}
-
-// This function will free the existing stack if any errors were encountered
-// during processing of the number arrays.
-// *stack will automatically be set to NULL by the end of the loop.
-void	free_stack(t_stack_node **stack)
-{
-	t_stack_node	*current_node;
-
-	if (!stack)
-		return ;
-	while (*stack)
-	{
-		current_node = *stack;
-		*stack = (*stack)->next;
-		free(current_node);
-	}
-}
-
-// This function is called in init_stack to free the numbers array
-// that was malloced once all the numbers have been processed into
-// nodes in the linked list.
-void	free_double_arr(char **av)
-{
-	int	i;
-
-	if (!av)
-		return ;
-	i = -1;
-	while (av[++i])
-		free(av[i]);
-	free(av);
-}
 
 // This function checks that the syntax is valid i.e. only +/- signs
 // and numbers are allowed.
@@ -93,4 +52,45 @@ int	duplicate_error(t_stack_node *stack, int nbr)
 		stack = stack->next;
 	}
 	return (0);
+}
+
+// This function frees the stack, prints the error message and
+// exits the program.
+void	free_err_exit(t_stack_node **stack)
+{
+	free_stack(stack);
+	write(2, "Error\n", 6);
+	exit(1);
+}
+
+// This function will free the existing stack if any errors were encountered
+// during processing of the number arrays.
+// *stack will automatically be set to NULL by the end of the loop.
+void	free_stack(t_stack_node **stack)
+{
+	t_stack_node	*current_node;
+
+	if (!stack)
+		return ;
+	while (*stack)
+	{
+		current_node = *stack;
+		*stack = (*stack)->next;
+		free(current_node);
+	}
+}
+
+// This function is called in init_stack to free the numbers array
+// that was malloced once all the numbers have been processed into
+// nodes in the linked list.
+void	free_double_arr(char **av)
+{
+	int	i;
+
+	if (!av)
+		return ;
+	i = -1;
+	while (av[++i])
+		free(av[i]);
+	free(av);
 }

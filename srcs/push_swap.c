@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 11:36:08 by etien             #+#    #+#             */
-/*   Updated: 2024/08/01 10:17:33 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 10:34:37 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 	if (!stack_sorted(a))
 	{
 		if (stack_size(a) == 2)
-			sa(a, false);
+			sa(&a, false);
 		else if (stack_size(a) == 3)
 			sort_three(&a);
 		else

@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 16:06:43 by etien             #+#    #+#             */
-/*   Updated: 2024/08/01 10:06:48 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 10:41:20 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,11 @@ void			rrb(t_stack_node **b, bool print);
 void			rrr(t_stack_node **a, t_stack_node **b, bool print);
 
 // Error handling
+int				syntax_error(char *str);
+int				duplicate_error(t_stack_node *stack, int nbr);
 void			free_err_exit(t_stack_node **stack);
 void			free_stack(t_stack_node **stack);
 void			free_double_arr(char **av);
-int				syntax_error(char *str);
-int				duplicate_error(t_stack_node *stack, int nbr);
 
 // Stack init
 char			**create_numbers_arr(char **av);
@@ -72,17 +72,17 @@ t_stack_node	*find_best_candidate(t_stack_node *stack);
 // Init nodes in stack A
 void			init_nodes_a(t_stack_node *a, t_stack_node *b);
 void			set_index_median(t_stack_node *stack);
-static void		set_target_for_a(t_stack_node *a, t_stack_node *b);
-static void		set_moves_to_push_a(t_stack_node *a, t_stack_node *b);
-static void		set_best_candidate(t_stack_node *a);
+void			set_target_for_a(t_stack_node *a, t_stack_node *b);
+void			set_moves_to_push_a(t_stack_node *a, t_stack_node *b);
+void			set_best_candidate(t_stack_node *a);
 
 // Init nodes in stack B
 void			init_nodes_b(t_stack_node *a, t_stack_node *b);
-static void		set_target_for_b(t_stack_node *a, t_stack_node *b);
+void			set_target_for_b(t_stack_node *a, t_stack_node *b);
 
 // Sort algorithms
 void			sort_stack(t_stack_node **a, t_stack_node **b);
-static void		sort_three(t_stack_node **a);
+void			sort_three(t_stack_node **a);
 bool			stack_sorted(t_stack_node *a);
 
 // Move nodes
@@ -91,7 +91,7 @@ void			move_b_to_a(t_stack_node **a, t_stack_node **b);
 void			rotate_both_stacks(t_stack_node **a, t_stack_node **b,
 					t_stack_node *best_candidate, int direction);
 void			node_on_top(t_stack_node **stack, t_stack_node *node,
-					char *stack_name);
+					char stack_name);
 void			min_on_top(t_stack_node **a);
 
 #endif
