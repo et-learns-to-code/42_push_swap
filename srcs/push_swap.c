@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 11:36:08 by etien             #+#    #+#             */
-/*   Updated: 2024/08/01 16:51:46 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 17:31:47 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,6 @@ int	main(int ac, char **av)
 		else
 			sort_stack(&a, &b);
 	}
-	// while (a)
-	// {
-	// 	ft_printf("%i\n", a->value);
-	// 	a = a->next;
-	// }
 	free_stack(&a);
 	return (0);
 }
