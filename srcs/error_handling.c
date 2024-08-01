@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:31:53 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 17:47:22 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 10:13:58 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	free_stack(t_stack_node **stack)
 {
 	t_stack_node	*current_node;
 
+	if (!stack)
+		return ;
 	while (*stack)
 	{
 		current_node = *stack;
@@ -43,6 +45,8 @@ void	free_double_arr(char **av)
 {
 	int	i;
 
+	if (!av)
+		return ;
 	i = -1;
 	while (av[++i])
 		free(av[i]);

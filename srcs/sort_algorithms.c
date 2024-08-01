@@ -6,9 +6,11 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 09:43:49 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 14:31:04 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 10:06:07 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/push_swap.h"
 
 // These are the main steps in the Turk's algorithm function:
 // 1) If stack A has at least five nodes, its two top nodes will be

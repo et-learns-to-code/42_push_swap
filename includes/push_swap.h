@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 16:06:43 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 17:48:23 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 10:06:48 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void			free_err_exit(t_stack_node **stack);
 void			free_stack(t_stack_node **stack);
 void			free_double_arr(char **av);
 int				syntax_error(char *str);
-int				duplicate_error(t_stack_node stack, int nbr);
+int				duplicate_error(t_stack_node *stack, int nbr);
 
 // Stack init
 char			**create_numbers_arr(char **av);
