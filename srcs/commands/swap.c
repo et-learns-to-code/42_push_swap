@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 13:51:09 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 17:29:10 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 15:51:27 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	sb(t_stack_node **b, bool print)
 {
 	swap(b);
 	if (print)
-		ft_printf("sa\n");
+		ft_printf("sb\n");
 }
 
 void	ss(t_stack_node **a, t_stack_node **b, bool print)
