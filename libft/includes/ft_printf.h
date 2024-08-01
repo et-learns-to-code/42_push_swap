@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:14:42 by etien             #+#    #+#             */
-/*   Updated: 2024/07/04 15:17:05 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 13:31:44 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ int		ft_print_string(va_list ap);
 int		ft_print_unsigned(va_list ap);
 int		ft_print_upperhex(va_list ap);
 int		ft_putnbr_base(unsigned long long n, const char *base);
-size_t	ft_strlen(const char *s);
+size_t	printf_strlen(const char *s);
 
 #endif

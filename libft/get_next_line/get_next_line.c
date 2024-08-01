@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 13:38:21 by etien             #+#    #+#             */
-/*   Updated: 2024/07/27 11:38:13 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 13:27:50 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	if (!stash)
-		stash = ft_strdup("");
+		stash = gnl_strdup("");
 	append_buffer_loop(&stash, fd);
 	complete_line = extract_line(&stash);
 	if (!complete_line)
@@ -57,7 +57,7 @@ void	append_buffer_loop(char **stash, int fd)
 		buffer = read_to_buffer(fd);
 		if (!buffer)
 			return ;
-		tmp_stash = ft_strjoin(*stash, buffer);
+		tmp_stash = gnl_strjoin(*stash, buffer);
 		free(*stash);
 		free(buffer);
 		*stash = tmp_stash;
@@ -118,14 +118,14 @@ char	*extract_line(char **stash)
 	char	*leftovers;
 
 	len = 0;
-	if (ft_strlen(*stash) == 0)
+	if (gnl_strlen(*stash) == 0)
 		return (NULL);
 	while ((*stash)[len] != '\n' && (*stash)[len])
 		len++;
 	if ((*stash)[len] == '\n')
 	{
-		complete_line = ft_substr(*stash, 0, len + 1);
-		leftovers = ft_substr(*stash, len + 1, ft_strlen(*stash) - len - 1);
+		complete_line = gnl_substr(*stash, 0, len + 1);
+		leftovers = gnl_substr(*stash, len + 1, gnl_strlen(*stash) - len - 1);
 		free(*stash);
 		*stash = leftovers;
 		return (complete_line);

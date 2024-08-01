@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:02:32 by etien             #+#    #+#             */
-/*   Updated: 2024/06/27 10:45:56 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 13:31:04 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_putnbr_base(unsigned long long n, const char *base_str)
 	unsigned long long	base;
 
 	count = 0;
-	base = ft_strlen(base_str);
+	base = printf_strlen(base_str);
 	if (n >= base)
 	{
 		count += ft_putnbr_base((n / base), base_str);
