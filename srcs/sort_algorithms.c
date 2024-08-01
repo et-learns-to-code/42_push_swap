@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 09:43:49 by etien             #+#    #+#             */
-/*   Updated: 2024/08/01 10:32:11 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 16:56:03 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,11 @@ void	sort_three(t_stack_node **a)
 	if (!stack_sorted(*a))
 	{
 		if ((*a) == max_node)
-			ra(a, false);
+			ra(a, true);
 		else if ((*a)->next == max_node)
-			rra(a, false);
+			rra(a, true);
 		if ((*a)->value > (*a)->next->value)
-			sa(a, false);
+			sa(a, true);
 	}
 }
 

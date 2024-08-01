@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 13:21:11 by etien             #+#    #+#             */
-/*   Updated: 2024/08/01 10:39:15 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/01 16:26:31 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 		rotate_both_stacks(a, b, best_candidate, REVERSE);
 	node_on_top(a, best_candidate, 'a');
 	node_on_top(b, best_candidate->target_node, 'b');
-	pb(a, b, false);
+	pb(a, b, true);
 }
 
 // This function is called in the second while loop in the sort_stack function.
@@ -42,7 +42,7 @@ void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 {
 	node_on_top(a, (*b)->target_node, 'a');
-	pa(a, b, false);
+	pa(a, b, true);
 }
 
 // This function optimizes the algorithm when preparing to push
@@ -58,12 +58,12 @@ void	rotate_both_stacks(t_stack_node **a, t_stack_node **b,
 	if (direction == FORWARD)
 	{
 		while (*a != best_candidate && *b != best_candidate->target_node)
-			rr(a, b, false);
+			rr(a, b, true);
 	}
 	else if (direction == REVERSE)
 	{
 		while (*a != best_candidate && *b != best_candidate->target_node)
-			rrr(a, b, false);
+			rrr(a, b, true);
 	}
 	set_index_median(*a);
 	set_index_median(*b);
@@ -81,16 +81,16 @@ void	node_on_top(t_stack_node **stack, t_stack_node *node, char stack_name)
 		if (stack_name == 'a')
 		{
 			if (node->above_median)
-				ra(stack, false);
+				ra(stack, true);
 			else
-				rra(stack, false);
+				rra(stack, true);
 		}
 		else if (stack_name == 'b')
 		{
 			if (node->above_median)
-				rb(stack, false);
+				rb(stack, true);
 			else
-				rrb(stack, false);
+				rrb(stack, true);
 		}
 	}
 }
@@ -108,8 +108,8 @@ void	min_on_top(t_stack_node **a)
 	while (*a != min_node)
 	{
 		if (min_node->above_median)
-			ra(a, false);
+			ra(a, true);
 		else
-			rra(a, false);
+			rra(a, true);
 	}
 }
