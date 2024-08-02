@@ -24,28 +24,28 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
+	@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
+	@$(CC) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
 
 bonus: $(NAME_B)
 
 $(NAME_B): $(OBJS_B) $(LIBFT)
-	$(CC) $(OBJS_B) -L$(LIBFT_DIR) -lft -o $(NAME_B)
+	@$(CC) $(OBJS_B) -L$(LIBFT_DIR) -lft -o $(NAME_B)
 
 $(LIBFT): FORCE
-	make -C	$(LIBFT_DIR)
+	@make -C	$(LIBFT_DIR)
 
 clean:
-	make clean -C $(LIBFT_DIR)
-	rm -f $(OBJS) $(OBJS_B)
+	@make clean -C $(LIBFT_DIR)
+	@rm -f $(OBJS) $(OBJS_B)
 
 fclean: clean
-	make fclean -C $(LIBFT_DIR)
-	rm -f $(NAME) $(NAME_B)
+	@make fclean -C $(LIBFT_DIR)
+	@rm -f $(NAME) $(NAME_B)
 
 re: fclean all
 
