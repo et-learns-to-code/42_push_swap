@@ -6,13 +6,16 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 16:06:43 by etien             #+#    #+#             */
-/*   Updated: 2024/08/01 10:41:20 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/02 11:16:21 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+// unistd - to access write function
+// stdbool - to use boolean data type
+// limits - to use INT_MIN & INT_MAX to detect integer overflow
 # include <unistd.h>
 # include <stdbool.h>
 # include <limits.h>
@@ -20,6 +23,7 @@
 # include "../libft/includes/ft_printf.h"
 # include "../libft/includes/get_next_line.h"
 
+// macros for rotate_both_stacks function
 # define FORWARD 0
 # define REVERSE 1
 
