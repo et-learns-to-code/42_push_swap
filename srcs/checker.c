@@ -6,13 +6,21 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:38:06 by etien             #+#    #+#             */
-/*   Updated: 2024/08/02 11:55:18 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/02 14:26:53 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../includes/checker.h"
 
-int main(int ac, char **av)
+// The main function initializes the stack based on the argument input,
+// then it keeps prompting the user for command inputs in a while loop.
+// Each time a command is given, it is executed on the stack.
+// The while loop is terminated when "CTRL-D" (EOF signal) is pressed
+// because get_next_line will return a NULL instead of a string.
+// Finally, the stack_sorted function is called to check that the stack has
+// been sorted successfully. It will print 'OK' if this is the case,
+// otherwise it will print 'KO'.
+int	main(int ac, char **av)
 {
 	t_stack_node	*a;
 	t_stack_node	*b;
@@ -31,14 +39,11 @@ int main(int ac, char **av)
 		command = get_next_line(STDIN_FILENO);
 	}
 	if (stack_sorted(a) && b == NULL)
-	{
-
-	}
-
-
-
-
-
+		write(STDOUT_FILENO, "OK\n", 3);
+	else
+		write(STDOUT_FILENO, "KO\n", 3);
+	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }
 
@@ -48,7 +53,7 @@ int main(int ac, char **av)
 // to STDOUT (this is the behaviour required for the checker).
 // If an invalid command was inputted, a function will be called
 // to free the stacks.
-void execute_command(char *command, t_stack_node **a, t_stack_node **b)
+void	execute_command(char *command, t_stack_node **a, t_stack_node **b)
 {
 	if (!ft_strncmp(command, "sa\n", 3))
 		sa(a, false);
@@ -82,7 +87,7 @@ void execute_command(char *command, t_stack_node **a, t_stack_node **b)
 // only free one stack. In this case, since the stack is still being
 // sorted, there could be nodes in both stacks. All the nodes have to
 // be freed.
-void invalid_command(t_stack_node **a, t_stack_node **b)
+void	invalid_command(t_stack_node **a, t_stack_node **b)
 {
 	free_stack(a);
 	free_stack(b);

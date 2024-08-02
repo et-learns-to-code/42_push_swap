@@ -6,11 +6,11 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 13:43:59 by etien             #+#    #+#             */
-/*   Updated: 2024/06/27 10:42:47 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/02 15:04:44 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 // On a 64-bit system, pointers are typically 64 bits (8 bytes) in size,
 // so they are stored as unsigned long or unsigned long long.

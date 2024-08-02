@@ -6,11 +6,11 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 14:02:32 by etien             #+#    #+#             */
-/*   Updated: 2024/08/01 13:31:04 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/02 15:05:13 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 // long long data type is guaranteed to be at least 8 bytes (64 bits)
 // on all platforms supported by C99 and later standards.

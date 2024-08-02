@@ -6,11 +6,11 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 13:44:58 by etien             #+#    #+#             */
-/*   Updated: 2024/06/27 10:41:03 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/02 15:04:34 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 // Prints a number in hexadecimal (base 16) lowercase format.
 int	ft_print_lowerhex(va_list ap)

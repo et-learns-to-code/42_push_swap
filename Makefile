@@ -1,14 +1,19 @@
 NAME = push_swap
 
+NAME_B = checker
+
+MAIN = srcs/push_swap.c
+
+MAIN_B = srcs/checker.c
+
 SRCS = $(addprefix srcs/, \
 	commands/push.c  commands/reverse_rotate.c commands/rotate.c commands/swap.c \
-	push_swap.c error_handling.c  stack_init.c stack_utils.c \
+	error_handling.c  stack_init.c stack_utils.c \
 	init_nodes_a.c init_nodes_b.c move_nodes.c sort_algorithms.c)
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(MAIN:.c=.o) $(SRCS:.c=.o)
 
-# SRCS_B =
-# OBJS_B = $(SRCS_B:.c=.o)
+OBJS_B = $(MAIN_B:.c=.o) $(SRCS:.c=.o)
 
 HEADER = -Iincludes
 
@@ -26,8 +31,10 @@ all: $(NAME)
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
 
-# bonus: $(OBJS_B) $(LIBFT)
-#	$(CC) $(OBJS_B) -L$(LIBFT_DIR) -lft -o $(NAME)
+bonus: $(NAME_B)
+
+$(NAME_B): $(OBJS_B) $(LIBFT)
+	$(CC) $(OBJS_B) -L$(LIBFT_DIR) -lft -o $(NAME_B)
 
 $(LIBFT): FORCE
 	make -C	$(LIBFT_DIR)
@@ -38,11 +45,11 @@ clean:
 
 fclean: clean
 	make fclean -C $(LIBFT_DIR)
-	rm -f $(NAME)
+	rm -f $(NAME) $(NAME_B)
 
 re: fclean all
 
-# re_bonus: fclean bonus
+re_bonus: fclean bonus
 
 FORCE:
 

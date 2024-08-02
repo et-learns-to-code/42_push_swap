@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 15:50:09 by etien             #+#    #+#             */
-/*   Updated: 2024/06/11 10:49:14 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/02 15:03:35 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include "../ft_printf/ft_printf.h"
+# include "../get_next_line/get_next_line.h"
 
 typedef struct s_list
 {

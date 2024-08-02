@@ -6,11 +6,11 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 13:43:13 by etien             #+#    #+#             */
-/*   Updated: 2024/07/04 15:33:24 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/02 15:04:40 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 // long long is chosen to hold int to avoid integer overflow.
 // long long can hold all values of int so no typecasting is necessary.

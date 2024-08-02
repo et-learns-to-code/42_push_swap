@@ -6,11 +6,11 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 10:20:29 by etien             #+#    #+#             */
-/*   Updated: 2024/06/27 10:48:23 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/02 15:05:06 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 static int	ft_specifier(char c, va_list ap);
 

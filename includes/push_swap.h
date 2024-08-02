@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 16:06:43 by etien             #+#    #+#             */
-/*   Updated: 2024/08/02 11:16:21 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/02 15:02:38 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,7 @@
 # include <unistd.h>
 # include <stdbool.h>
 # include <limits.h>
-# include "../libft/includes/libft.h"
-# include "../libft/includes/ft_printf.h"
-# include "../libft/includes/get_next_line.h"
+# include "../libft/libft/libft.h"
 
 // macros for rotate_both_stacks function
 # define FORWARD 0
