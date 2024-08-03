@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:01:02 by etien             #+#    #+#             */
-/*   Updated: 2024/08/01 10:35:40 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/03 16:18:09 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,8 @@ long	ft_atol(char *str)
 // sets up their value.
 // If there is no last node found i.e. the stack is empty, the stack pointer
 // is updated to the new node.
+// IMPORTANT: Initialize best_candidate boolean to false to avoid
+// unexpected behaviour.
 void	append_node(t_stack_node **stack, int nbr)
 {
 	t_stack_node	*new_node;
@@ -113,6 +115,7 @@ void	append_node(t_stack_node **stack, int nbr)
 		free_err_exit(stack);
 	new_node->next = NULL;
 	new_node->value = nbr;
+	new_node->best_candidate = false;
 	last_node = find_last(*stack);
 	if (!last_node)
 	{

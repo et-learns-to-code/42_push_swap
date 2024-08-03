@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 09:43:49 by etien             #+#    #+#             */
-/*   Updated: 2024/08/01 17:18:57 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/03 16:25:13 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,28 @@
 // 1) If stack A has at least five nodes, its two top nodes will be
 // pushed to stack B so that there are nodes in stack B to start
 // cross-sorting between stacks.
+// pb_count variable ensures that pb will execute a maximum of two times.
 // 2) Nodes in stack A are initialized and pushed to stack B onto their
 // target nodes so that stack B is sorted in descending order.
 // 3) Keep 3 nodes in stack A and sort them in ascending
 // order with a separate sort three algorithm.
 // 4) Nodes in stack B are initialized and pushed back to stack A onto
 // their target nodes so that stack A is sorted in ascending order.
-// 5) Finally, ensure that the smallest number is rotated to the top.
+// 5) Finally, make sure that the smallest number is rotated to the top.
 // 6) Voilà, stack A is fully sorted.
 void	sort_stack(t_stack_node **a, t_stack_node **b)
 {
 	int	size_a;
+	int	pb_count;
 
 	size_a = stack_size(*a);
-	if ((size_a-- > 3) && (!stack_sorted(*a)))
+	pb_count = 0;
+	while ((size_a > 3) && (pb_count < 2) && (!stack_sorted(*a)))
+	{
 		pb(a, b, true);
-	if ((size_a-- > 3) && (!stack_sorted(*a)))
-		pb(a, b, true);
+		pb_count++;
+		size_a--;
+	}
 	while ((size_a-- > 3) && (!stack_sorted(*a)))
 	{
 		init_nodes_a(*a, *b);
@@ -61,20 +66,18 @@ void	sort_three(t_stack_node **a)
 	t_stack_node	*max_node;
 
 	max_node = find_max(*a);
-	if (!stack_sorted(*a))
-	{
-		if ((*a) == max_node)
-			ra(a, true);
-		else if ((*a)->next == max_node)
-			rra(a, true);
-		if ((*a)->value > (*a)->next->value)
-			sa(a, true);
-	}
+	if ((*a) == max_node)
+		ra(a, true);
+	else if ((*a)->next == max_node)
+		rra(a, true);
+	if ((*a)->value > (*a)->next->value)
+		sa(a, true);
 }
 
-// This function checks that the stack has been sorted in ascending order
-// by returning false if a number is larger than the number that comes
-// after it. Only stack A will need to be sorted in ascending order.
+// This function checks that the stack has been sorted in ascending order.
+// It will return false (i.e. stack unsorted) if a number is larger than
+// the number that comes after it.
+// Only stack A will need to be sorted in ascending order.
 bool	stack_sorted(t_stack_node *a)
 {
 	if (!a)

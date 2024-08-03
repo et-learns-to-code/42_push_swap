@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:21:59 by etien             #+#    #+#             */
-/*   Updated: 2024/08/01 10:33:49 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/03 16:20:50 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	set_index_median(t_stack_node *stack)
 	while (stack)
 	{
 		stack->index = index;
-		if (index < median)
+		if (index <= median)
 			stack->above_median = true;
 		else
 			stack->above_median = false;
@@ -103,18 +103,20 @@ void	set_moves_to_push_a(t_stack_node *a, t_stack_node *b)
 {
 	int	size_a;
 	int	size_b;
+	int	moves_a_to_top;
+	int	moves_b_to_top;
 
 	size_a = stack_size(a);
 	size_b = stack_size(b);
 	while (a)
 	{
-		a->moves_to_push = a->index;
-		if (!(a->above_median))
-			a->moves_to_push = size_a - (a->index);
-		if (a->target_node->above_median)
-			a->moves_to_push += a->target_node->index;
-		else
-			a->moves_to_push += size_b - (a->target_node->index);
+		moves_a_to_top = a->index;
+		if (!a->above_median)
+			moves_a_to_top = size_a - a->index;
+		moves_b_to_top = a->target_node->index;
+		if (!a->target_node->above_median)
+			moves_b_to_top = size_b - a->target_node->index;
+		a->moves_to_push = moves_a_to_top + moves_b_to_top;
 		a = a->next;
 	}
 }
@@ -123,23 +125,19 @@ void	set_moves_to_push_a(t_stack_node *a, t_stack_node *b)
 // stack A that can be pushed to the other stack with the least number of
 // moves. If two nodes share the same number of moves, the node closer
 // to the top of the stack will be given priority.
-// Unlike the set_index_median function, only boolean for the best
-// candidate is set. Boolean for the other nodes are uninitialized.
+// IMPORTANT: Boolean for the other nodes are initialized to false by
+// default in the append_node function.
 void	set_best_candidate(t_stack_node *a)
 {
-	int				least_moves;
 	t_stack_node	*least_moves_node;
 
 	if (!a)
 		return ;
-	least_moves = INT_MAX;
+	least_moves_node = a;
 	while (a)
 	{
-		if (a->moves_to_push < least_moves)
-		{
-			least_moves = a->moves_to_push;
+		if (a->moves_to_push < least_moves_node->moves_to_push)
 			least_moves_node = a;
-		}
 		a = a->next;
 	}
 	least_moves_node->best_candidate = true;

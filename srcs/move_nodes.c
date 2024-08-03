@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 13:21:11 by etien             #+#    #+#             */
-/*   Updated: 2024/08/01 16:26:31 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/03 15:58:25 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,11 @@ void	move_b_to_a(t_stack_node **a, t_stack_node **b)
 void	rotate_both_stacks(t_stack_node **a, t_stack_node **b,
 	t_stack_node *best_candidate, int direction)
 {
-	if (direction == FORWARD)
+	while ((*a != best_candidate) && (*b != best_candidate->target_node))
 	{
-		while (*a != best_candidate && *b != best_candidate->target_node)
+		if (direction == FORWARD)
 			rr(a, b, true);
-	}
-	else if (direction == REVERSE)
-	{
-		while (*a != best_candidate && *b != best_candidate->target_node)
+		else if (direction == REVERSE)
 			rrr(a, b, true);
 	}
 	set_index_median(*a);
@@ -98,7 +95,7 @@ void	node_on_top(t_stack_node **stack, t_stack_node *node, char stack_name)
 // This function is only used by stack A to bring the smallest number
 // to the top of the stack right before the sorting terminates.
 // The *a pointer is always pointing to the head of the stack,
-// so the while condition is rotating until the min node is
+// so the while condition is rotating the stack until the min node is
 // at the head/top of the stack.
 void	min_on_top(t_stack_node **a)
 {
