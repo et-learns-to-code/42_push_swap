@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:38:06 by etien             #+#    #+#             */
-/*   Updated: 2024/08/03 16:47:58 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/05 11:03:29 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
-		free_err_exit(&a);
+	if (ac == 1)
+		return (1);
+	else if (!av[1][0])
+		invalid_command(&a, &b);
 	av = create_numbers_arr(av);
 	init_stack(&a, av);
 	command = get_next_line(STDIN_FILENO);
@@ -85,8 +87,8 @@ void	execute_command(char *command, t_stack_node **a, t_stack_node **b)
 // This function frees both stacks, outputs an error in STDERR and exits.
 // free_err_exit is not used here because the function was designed to
 // only free one stack. In this case, since the stack is still being
-// sorted, there could be nodes in both stacks. All the nodes have to
-// be freed.
+// sorted, there could be nodes in both stacks. All the nodes in both
+// stacks have to be freed.
 void	invalid_command(t_stack_node **a, t_stack_node **b)
 {
 	free_stack(a);

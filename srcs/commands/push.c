@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 13:18:23 by etien             #+#    #+#             */
-/*   Updated: 2024/08/01 17:21:18 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/05 10:22:17 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	push(t_stack_node **dst, t_stack_node **src)
 	else
 	{
 		push_node->next = *dst;
-		push_node->next->prev = push_node;
+		(*dst)->prev = push_node;
 		*dst = push_node;
 	}
 }
