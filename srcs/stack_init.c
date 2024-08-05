@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:01:02 by etien             #+#    #+#             */
-/*   Updated: 2024/08/03 17:39:50 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/05 13:14:39 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	**create_numbers_arr(char **av)
 	int		i;
 
 	concat_all_numbers = ft_strdup("");
-	i = 1;
+	i = 0;
 	while (av[i])
 	{
 		added_space = ft_strjoin(av[i], " ");
@@ -49,13 +49,17 @@ char	**create_numbers_arr(char **av)
 // Long data type is used for error checking because the number might actually
 // exceed the integer limit; after checking, duplicate error can just check for
 // int because the number has already been vetted.
-void	init_stack(t_stack_node **stack, char **av)
+// ft_split is only used to modify av in create_numbers_arr when first argument
+// is a string with integers so free is only called when ac == 2.
+// i = 0; while (av[++i]); means nodes start being processed from av[1] onwards,
+// because av[0] is the program name.
+void	init_stack(t_stack_node **stack, int ac, char **av)
 {
 	long	nbr;
 	int		i;
 
 	i = 0;
-	while (av[i])
+	while (av[++i])
 	{
 		if (syntax_error(av[i]))
 			free_err_exit(stack);
@@ -65,9 +69,9 @@ void	init_stack(t_stack_node **stack, char **av)
 		if (duplicate_error(*stack, (int)nbr))
 			free_err_exit(stack);
 		append_node(stack, (int)nbr);
-		i++;
 	}
-	free_double_arr(av);
+	if (ac == 2)
+		free_double_arr(av);
 }
 
 // This function converts the string to a long number.
