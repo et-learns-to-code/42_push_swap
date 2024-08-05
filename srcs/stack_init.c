@@ -6,50 +6,57 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 11:01:02 by etien             #+#    #+#             */
-/*   Updated: 2024/08/05 13:14:39 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/05 14:49:39 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// This function will create the numbers array that will be processed into
-// individual nodes in the linked list. It can handle for both scenarios:
+// This function is only called when (ac == 2).
+// It's sole purpose is to split the integer string given in av[1].
+// This function was initially a general purpose function that would concatenate
+// all different forms of arguments (whether in the form "1 2 3" or 1 2 3).
+// However, to make the input format more standardized, it has reduced its
+// scope to just av[0] and av[1].
+// OLD ANNOTATION:
+// This function can handle for both scenarios:
 // 1) when numbers are given in a single string
 // 2) when numbers are given as multiple arguments
-// It achieves this by creating a single string by appending spaces after
-// the numbers, concatenating the numbers then splitting the string
-// based on spaces.
-char	**create_numbers_arr(char **av)
+// It achieves this by:
+// - appending a spaces after each arg
+// - concatenating the args into a single string
+// - splitting the string based on spaces.
+char	**modify_av(char **av)
 {
-	char	**numbers_arr;
-	char	*concat_all_numbers;
+	char	**new_av;
+	char	*concat_args;
 	char	*temp;
 	char	*added_space;
 	int		i;
 
-	concat_all_numbers = ft_strdup("");
+	concat_args = ft_strdup("");
 	i = 0;
 	while (av[i])
 	{
 		added_space = ft_strjoin(av[i], " ");
-		temp = ft_strjoin(concat_all_numbers, added_space);
-		free(concat_all_numbers);
+		temp = ft_strjoin(concat_args, added_space);
+		free(concat_args);
 		free(added_space);
-		concat_all_numbers = temp;
+		concat_args = temp;
 		i++;
 	}
-	numbers_arr = ft_split(concat_all_numbers, ' ');
-	free(concat_all_numbers);
-	return (numbers_arr);
+	new_av = ft_split(concat_args, ' ');
+	free(concat_args);
+	return (new_av);
 }
 
-// This function will initialize the stack by first checking the number arrays
+// This function will initialize the stack by first checking the arguments
 // for syntax, value or duplicate errors, before creating and appending the
 // nodes to the stack.
 // Long data type is used for error checking because the number might actually
 // exceed the integer limit; after checking, duplicate error can just check for
 // int because the number has already been vetted.
-// ft_split is only used to modify av in create_numbers_arr when first argument
+// ft_split is only used to modify av in modify_av when first argument
 // is a string with integers so free is only called when ac == 2.
 // i = 0; while (av[++i]); means nodes start being processed from av[1] onwards,
 // because av[0] is the program name.

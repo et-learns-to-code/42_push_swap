@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:31:53 by etien             #+#    #+#             */
-/*   Updated: 2024/08/05 11:22:59 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/05 14:50:12 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	free_err_exit(t_stack_node **stack)
 }
 
 // This function will free the existing stack if any errors were encountered
-// during processing of the number arrays.
+// during processing of the arguments array.
 // *stack will automatically be set to NULL by the end of the loop.
 void	free_stack(t_stack_node **stack)
 {
@@ -80,7 +80,7 @@ void	free_stack(t_stack_node **stack)
 	}
 }
 
-// This function is called in init_stack to free the numbers array
+// This function is called in init_stack to free the arguments array
 // that was malloced once all the numbers have been processed into
 // nodes in the linked list.
 void	free_double_arr(char **av)
