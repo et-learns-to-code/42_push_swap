@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 10:38:06 by etien             #+#    #+#             */
-/*   Updated: 2024/08/05 11:10:29 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/05 11:23:26 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,6 @@ void	invalid_command(t_stack_node **a, t_stack_node **b)
 {
 	free_stack(a);
 	free_stack(b);
-	write(2, "Error\n", 6);
+	write(STDERR_FILENO, "Error\n", 6);
 	exit(1);
 }

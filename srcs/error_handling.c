@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:31:53 by etien             #+#    #+#             */
-/*   Updated: 2024/08/03 10:08:29 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/05 11:22:59 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	duplicate_error(t_stack_node *stack, int nbr)
 void	free_err_exit(t_stack_node **stack)
 {
 	free_stack(stack);
-	write(2, "Error\n", 6);
+	write(STDERR_FILENO, "Error\n", 6);
 	exit(1);
 }
 
