@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 10:21:59 by etien             #+#    #+#             */
-/*   Updated: 2024/08/03 16:20:50 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/06 10:25:36 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,17 @@ void	set_index_median(t_stack_node *stack)
 // Since the nodes are being pushed to stack B, each node must be pushed
 // onto a number smaller than them but still closest to them based on
 // the nodes currently available in stack B.
+// LONG_MIN serves as a sentinel value, so that in case a node is unable
+// to find a target node (e.g. a large negative number), it will be assigned
+// the node with the largest value as its target. Since the stack can be
+// rotated, the descending order of the stack will be maintained.
 // Long data type is used for best_match so that it is always
 // clear when this value has been updated. If there were INT_MIN or
 // INT_MAX nodes in the stack and an int data type was used instead,
 // this could send conflicting signals and result in incorrect execution in
 // the decision tree.
 // current_b pointer created because we need to iterate through the stack
-// but also have the original b pointer to use the find_max function.
+// but also need the original b pointer to use the find_max function.
 void	set_target_for_a(t_stack_node *a, t_stack_node *b)
 {
 	long			best_match;

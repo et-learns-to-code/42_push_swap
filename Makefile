@@ -37,7 +37,7 @@ $(NAME_B): $(OBJS_B) $(LIBFT)
 	@$(CC) $(OBJS_B) -L$(LIBFT_DIR) -lft -o $(NAME_B)
 
 $(LIBFT): FORCE
-	@make -C	$(LIBFT_DIR)
+	@make -C $(LIBFT_DIR)
 
 clean:
 	@make clean -C $(LIBFT_DIR)
