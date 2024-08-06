@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 16:53:21 by etien             #+#    #+#             */
-/*   Updated: 2024/07/31 17:35:15 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/06 10:52:25 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ t_stack_node	*find_max(t_stack_node *stack)
 // because the best_candidate is only assessed for stack A
 // when pushing nodes to stack B. Furthermore, each time the
 // boolean is set, that node will be moved into the other
-// stack, which means at any one time, only one node will
+// stack, which means that at any one time, only one node will
 // have the boolean turned on.
 t_stack_node	*find_best_candidate(t_stack_node *stack)
 {

@@ -6,7 +6,7 @@
 /*   By: etien <etien@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:45:04 by etien             #+#    #+#             */
-/*   Updated: 2024/08/06 10:26:43 by etien            ###   ########.fr       */
+/*   Updated: 2024/08/06 10:34:23 by etien            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	init_nodes_b(t_stack_node *a, t_stack_node *b)
 // back to stack A.
 // LONG_MAX serves as a sentinel value, so that in case a node is unable
 // to find a target node (e.g. a large positive number), it will be assigned
-// the node with the smaller value as its target. Since the stack can be
+// the node with the smallest value as its target. Since the stack can be
 // rotated, the ascending order of the stack will be maintained.
 // Long data type is used for best_match so that it is always
 // clear when this value has been updated. If there were INT_MIN or
